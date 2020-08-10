@@ -75,6 +75,9 @@ if (args.current("set")) {
     project.showProject();
   } else if (args.current("default")) {
     project.showDefault();
+  } else if (args.current("profile")) {
+    let s = JSON.parse(fs.readFileSync(doit_profile, { encoding: "utf-8" }));
+    console.log(s.name, `| Minutes: ${s.minutes}`);
   }
 } else {
   printUsage();
