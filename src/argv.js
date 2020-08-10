@@ -13,8 +13,24 @@ class Argv {
     return this.args[this.niddle + 1] == value;
   }
 
+  getNext() {
+    return this.args[this.niddle + 1];
+  }
+
   up() {
     this.niddle += 1;
+  }
+
+  hasNext() {
+    return !!this.args[this.niddle + 1];
+  }
+
+  hasCurrent() {
+    return !!this.args[this.niddle];
+  }
+
+  getCurrent() {
+    return this.args[this.niddle];
   }
 
   current(value) {

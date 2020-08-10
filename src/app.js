@@ -1,12 +1,19 @@
 #!/home/akash/opt/node/bin/node
 const readline = require("readline-sync");
-const { home, doit_path, doit_profile, doit_projects } = require("./constants");
+const {
+  home,
+  doit_path,
+  doit_profile,
+  doit_projects,
+  doit_tags,
+} = require("./constants");
 const fs = require("fs");
 const { setProfile, printUsage, printSetUsage } = require("./util");
 const Argv = require("./argv");
 const version = require("./version");
 const Project = require("./projects");
 const { argv } = require("process");
+const Tags = require("./tags");
 
 if (!fs.existsSync(home)) {
   console.error("Cannot Access your Home Directory");
@@ -33,8 +40,13 @@ if (!fs.existsSync(doit_projects)) {
   );
 }
 
+if (!fs.existsSync(doit_tags)) {
+  fs.writeFileSync(doit_tags, JSON.stringify({}));
+}
+
 let project = new Project();
 let args = new Argv();
+let tags = new Tags();
 
 if (args.current("set")) {
   if (args.current("profile")) {
@@ -45,7 +57,13 @@ if (args.current("set")) {
     printSetUsage();
   }
 } else if (args.current("add")) {
+  if (args.current("tags")) {
+    tags.addTag();
+  }
 } else if (args.current("delete")) {
+  if (args.current("tags")) {
+    tags.delete();
+  }
 } else if (args.current("show")) {
 } else {
   printUsage();
