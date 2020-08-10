@@ -59,6 +59,8 @@ if (args.current("set")) {
 } else if (args.current("add")) {
   if (args.current("tags")) {
     tags.addTag();
+  } else if (args.current("project")) {
+    project.addProject();
   }
 } else if (args.current("delete")) {
   if (args.current("tags")) {

@@ -54,11 +54,13 @@ Project Data Structure
     	{
     		id: 1242332,
     		doing: true,
+    		default: false, 
     		time: 120,
     		name: "Project X"
 		},
 		{
             id: 123232,
+            default: true,
             doing: false,
             time: 30,
             name: "Projext Y"
@@ -71,7 +73,6 @@ Project Data Structure
 
 ```bash
 $ doit add project <project name>
-doing [y/n]? 
 time: 120
 ```
 
@@ -263,6 +264,7 @@ $ doit delete tag --done
 $ doit show tags --done
 
 $ doit set default
+$ doit set doing
 
 
 $ doit add project <project name>
