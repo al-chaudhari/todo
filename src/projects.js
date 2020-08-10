@@ -63,6 +63,23 @@ class Project {
     }
     return storage;
   };
+
+  setDefault = () => {
+    let def = readline.keyInSelect(
+      this.getProjectNames(),
+      "Select Default Project"
+    );
+
+    let name = this.getProjectNames()[def];
+    for (let i of this.data.projects) {
+      if (i.name == name) {
+        i.defualt = true;
+      } else {
+        i.defualt = false;
+      }
+    }
+    this.save();
+  };
 }
 
 module.exports = Project;

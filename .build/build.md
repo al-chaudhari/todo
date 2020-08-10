@@ -262,12 +262,13 @@ $ doit set profile -- done
 $ doit add tag 'a'  -- done
 $ doit delete tag --done
 $ doit show tags --done
+$ doit add project -- done
 
 $ doit set default
 $ doit set doing
 
 
-$ doit add project <project name>
+
 $ doit add task 'TaskA' 'TaskB'	
 $ doit add board ui kd
 

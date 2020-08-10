@@ -52,7 +52,7 @@ if (args.current("set")) {
   if (args.current("profile")) {
     setProfile();
   } else if (args.current("default")) {
-    // set Default Here
+    project.setDefault();
   } else {
     printSetUsage();
   }
