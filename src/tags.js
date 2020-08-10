@@ -35,6 +35,13 @@ class Tags {
     this.save();
   }
 
+  show() {
+    let tags = Object.keys(this.data);
+    for (let i of tags) {
+      console.log(i);
+    }
+  }
+
   save = () => {
     fs.writeFileSync(doit_tags, JSON.stringify(this.data));
   };

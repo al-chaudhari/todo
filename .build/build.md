@@ -257,19 +257,20 @@ $ doit show boards
 ## List of Task to Maintain
 
 ```bash
-$ doit set profile
+$ doit set profile -- done
+$ doit add tag 'a'  -- done
+$ doit delete tag --done
+
 $ doit set default
 
 
 $ doit add project <project name>
 $ doit add task 'TaskA' 'TaskB'	
-$ doit add tag 'a' 'b'
 $ doit add board ui kd
 
 $ doit move <do> <doing>
 
 $ doit delete board
-$ doit delete tag
 $ doit delete task <name-of-board>
 $ doit delete project
 

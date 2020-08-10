@@ -65,6 +65,9 @@ if (args.current("set")) {
     tags.delete();
   }
 } else if (args.current("show")) {
+  if (args.current("tags")) {
+    tags.show();
+  }
 } else {
   printUsage();
 }
