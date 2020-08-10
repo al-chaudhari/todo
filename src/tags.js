@@ -13,6 +13,7 @@ class Tags {
       limit: function (input) {
         return input.length > 0;
       },
+      limitMessage: "Please Enter name",
     });
 
     let color = readline.question("Color : ", {

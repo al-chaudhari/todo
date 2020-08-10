@@ -260,6 +260,7 @@ $ doit show boards
 $ doit set profile -- done
 $ doit add tag 'a'  -- done
 $ doit delete tag --done
+$ doit show tags --done
 
 $ doit set default
 
@@ -275,10 +276,9 @@ $ doit delete task <name-of-board>
 $ doit delete project
 
 $ doit show boards
-$ doit show tags
 $ doit show task <board>
 $ doit show default
-$ doit show project
+$ doit show project 
 $ doit show profile
 ```
 
