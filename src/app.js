@@ -15,11 +15,20 @@ const Project = require("./projects");
 const { argv } = require("process");
 const Tags = require("./tags");
 
+/**
+ * Home Not Accessable?
+ * Exit with Message
+ */
 if (!fs.existsSync(home)) {
   console.error("Cannot Access your Home Directory");
   process.exit(0);
 }
 
+/**
+ * Don't Have Doit Folder ?
+ * Create Directory or
+ * Report Error
+ */
 if (!fs.existsSync(doit_path)) {
   fs.mkdir(doit_path, { recursive: false }, (error) => {
     if (error) {
@@ -29,10 +38,19 @@ if (!fs.existsSync(doit_path)) {
   });
 }
 
+/**
+ * Have Doit Profile?
+ * Create one!!
+ */
 if (!fs.existsSync(doit_profile)) {
   setProfile();
 }
 
+/**
+ * Have Projects?
+ * Crate A basic File
+ * In Startup
+ */
 if (!fs.existsSync(doit_projects)) {
   fs.writeFileSync(
     doit_projects,
@@ -40,6 +58,10 @@ if (!fs.existsSync(doit_projects)) {
   );
 }
 
+/**
+ * Startup Create
+ * A Tags File
+ */
 if (!fs.existsSync(doit_tags)) {
   fs.writeFileSync(doit_tags, JSON.stringify({}));
 }
