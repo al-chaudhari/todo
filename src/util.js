@@ -18,6 +18,8 @@ function setProfile() {
   );
 }
 
+function setDefault() {}
+
 function printUsage() {
   console.log(
     `Usage: doit [options]

@@ -262,10 +262,11 @@ $ doit set default
 
 
 $ doit add project <project name>
-$ doit add task 'TaskA' 'TaskB'
-$ doit move <do> <doing>
+$ doit add task 'TaskA' 'TaskB'	
 $ doit add tag 'a' 'b'
 $ doit add board ui kd
+
+$ doit move <do> <doing>
 
 $ doit delete board
 $ doit delete tag
