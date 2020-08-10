@@ -11,6 +11,13 @@ function questionProfile() {
     }))
 }
 
+function contains(value) {
+
+}
+
+function addProject() {
+}
+
 module.exports = {
     questionProfile
 }
