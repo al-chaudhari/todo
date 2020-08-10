@@ -263,15 +263,14 @@ $ doit add tag 'a'  -- done
 $ doit delete tag --done
 $ doit show tags --done
 $ doit add project -- done
+$ doit set default -- done
 
-$ doit set default
 $ doit set doing
 
 
 
 $ doit add task 'TaskA' 'TaskB'	
 $ doit add board ui kd
-
 $ doit move <do> <doing>
 
 $ doit delete board

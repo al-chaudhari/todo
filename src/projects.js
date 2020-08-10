@@ -80,6 +80,23 @@ class Project {
     }
     this.save();
   };
+
+  deleteProject = () => {
+    let def = readline.keyInSelect(
+      this.getProjectNames(),
+      "Select Project to Delete"
+    );
+
+    let name = this.getProjectNames()[def];
+
+    for (let i = 0; i < this.data.projects.length; i++) {
+      if (this.data.projects[i].name == name) {
+        this.data.projects.splice(i, 1);
+      }
+    }
+
+    this.save();
+  };
 }
 
 module.exports = Project;
