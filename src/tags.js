@@ -1,7 +1,6 @@
 const { doit_tags } = require("./constants");
 const fs = require("fs");
 const readline = require("readline-sync");
-const { on } = require("process");
 
 class Tags {
   colors = [];
