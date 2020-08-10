@@ -70,6 +70,12 @@ let project = new Project();
 let args = new Argv();
 let tags = new Tags();
 
+/**
+ * This only Seems
+ * Non Experienced But Uses
+ * States
+ */
+
 if (args.current("set")) {
   if (args.current("profile")) {
     setProfile();
