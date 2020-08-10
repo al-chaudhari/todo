@@ -94,9 +94,27 @@ class Project {
         this.data.projects.splice(i, 1);
       }
     }
-
     this.save();
   };
+
+  showDefault() {
+    let def = this.getDefault();
+    console.log(def ? def : "* No Default Set");
+  }
+
+  getDefault() {
+    for (let i of this.data.projects) {
+      if (i.defualt) {
+        return i.name;
+      }
+    }
+  }
+
+  showProject() {
+    for (let i of this.getProjectNames()) {
+      console.log(i);
+    }
+  }
 }
 
 module.exports = Project;

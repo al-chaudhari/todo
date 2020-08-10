@@ -71,6 +71,10 @@ if (args.current("set")) {
 } else if (args.current("show")) {
   if (args.current("tags")) {
     tags.show();
+  } else if (args.current("project")) {
+    project.showProject();
+  } else if (args.current("default")) {
+    project.showDefault();
   }
 } else {
   printUsage();

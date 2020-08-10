@@ -264,6 +264,8 @@ $ doit delete tag --done
 $ doit show tags --done
 $ doit add project -- done
 $ doit set default -- done
+$ doit delete project -- done
+$ doit show project -- done
 
 $ doit set doing
 
@@ -275,12 +277,11 @@ $ doit move <do> <doing>
 
 $ doit delete board
 $ doit delete task <name-of-board>
-$ doit delete project
+
 
 $ doit show boards
 $ doit show task <board>
 $ doit show default
-$ doit show project 
 $ doit show profile
 ```
 
