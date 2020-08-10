@@ -1,6 +1,7 @@
-const { doit_projects } = require("./constants");
+const { doit_projects, doit_path } = require("./constants");
 const fs = require("fs");
 const readline = require("readline-sync");
+const path = require("path");
 
 class Project {
   constructor() {
@@ -21,6 +22,13 @@ class Project {
       limitMessage: "Project Exist Or Invalid Input",
     });
 
+    let desc = readline.question("Description : ", {
+      limit: (input) => {
+        return input.length > 10;
+      },
+      limitMessage: "Should be Grater Then 10 Characters",
+    });
+
     let time = readline.questionInt(
       "How many Minutes You Want to Spend in a Day? : "
     );
@@ -30,10 +38,24 @@ class Project {
       doing: false,
       defualt: false,
       time: time,
+      desc: desc,
       name: name,
     });
 
+    this.createBoard(id);
+
     this.save();
+  };
+
+  createBoard = (id) => {
+    fs.writeFileSync(
+      path.join(doit_path, `${id}.json`),
+      JSON.stringify({
+        do: [],
+        doing: [],
+        done: [],
+      })
+    );
   };
 
   createID = () => {
