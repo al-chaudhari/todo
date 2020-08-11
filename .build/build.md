@@ -278,7 +278,6 @@ $ doit move <do> <doing>
 $ doit delete board
 $ doit delete task <name-of-board>
 
-
 $ doit show boards
 $ doit show task <board>
 ```
