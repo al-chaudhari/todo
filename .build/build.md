@@ -134,6 +134,7 @@ Task Data Structure
 			name: "TaskA",
 			time: 12,
 			cost: 14,
+			priority: "high"
 			tags: ["green", "yellow"]
 		},
 		{
@@ -141,6 +142,7 @@ Task Data Structure
 			name: "TaskA",
 			time: 12,
 			cost: 14,
+			priority: "low"
 			tags: ["green", "yellow"]
 		}
 	],
@@ -150,6 +152,7 @@ Task Data Structure
 			name: "TaskA",
 			time: 12,
 			cost: 14,
+			priority: "low"
 			tags: ["green", "yellow"]
 		}
 	]
@@ -269,10 +272,9 @@ $ doit show profile --done
 $ doit set doing -- done
 
 $ doit add task 'TaskA' 'TaskB'	
-$ doit add board ui kd
 $ doit move <do> <doing>
 
-$ doit delete board
+
 $ doit delete task <name-of-board>
 
 $ doit show boards

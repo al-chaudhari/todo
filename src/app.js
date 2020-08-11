@@ -12,8 +12,8 @@ const { setProfile, printUsage, printSetUsage } = require("./util");
 const Argv = require("./argv");
 const version = require("./version");
 const Project = require("./projects");
-const { argv } = require("process");
 const Tags = require("./tags");
+const Board = require("./board");
 
 /**
  * Home Not Accessable?
@@ -69,6 +69,7 @@ if (!fs.existsSync(doit_tags)) {
 let project = new Project();
 let args = new Argv();
 let tags = new Tags();
+let board = new Board()
 
 /**
  * This only Seems
@@ -91,6 +92,8 @@ if (args.current("set")) {
     tags.addTag();
   } else if (args.current("project")) {
     project.addProject();
+  } else if(args.current('boards')){
+    
   }
 } else if (args.current("delete")) {
   if (args.current("tags")) {
