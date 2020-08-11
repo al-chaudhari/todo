@@ -81,6 +81,8 @@ if (args.current("set")) {
     setProfile();
   } else if (args.current("default")) {
     project.setDefault();
+  } else if (args.current('doing')) {
+    project.setDoing()
   } else {
     printSetUsage();
   }

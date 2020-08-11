@@ -1,7 +1,8 @@
-const { doit_projects, doit_path } = require("./constants");
+const { doit_projects, doit_path, doit_profile } = require("./constants");
 const fs = require("fs");
 const readline = require("readline-sync");
 const path = require("path");
+const { throws } = require("assert");
 
 class Project {
   constructor() {
@@ -29,7 +30,7 @@ class Project {
       limitMessage: "Should be Grater Then 10 Characters",
     });
 
-    
+
     let id = this.createID();
     this.data.projects.push({
       id: id,
@@ -133,6 +134,67 @@ class Project {
     for (let i of this.getProjectNames()) {
       console.log(i);
     }
+  }
+
+  setDoing = () => {
+    let projects = this.getProjectNames();
+    let profile = JSON.parse(fs.readFileSync(doit_profile, { encoding: 'utf-8' }));
+    let time = profile.minutes;
+    let _storage = [];
+
+    // No Projects
+    if (!projects.length) {
+      console.log("No Project Exists");
+      process.exit(0);
+    }
+
+    //Only Projects
+    if (projects.length == 1) {
+      console.log(`Only Project [${projects[0]}]: Minutes[${time}]`)
+      _storage.push({ name: projects[0], minutes: time })
+      process.exit(0);
+    }
+
+
+    while (time > 0) {
+      let select = readline.keyInSelect(projects, "Select Project");
+      if (select < 0) {
+        process.exit(0);
+      }
+      let time_ask = readline.questionInt(`Minutes for [${projects[select]}] : `, {
+        limit: (input) => {
+          return input <= time;
+        }, limitMessage: `Only ${time} Remained`
+      });
+
+      let removed = projects.splice(select, 1);
+      time -= time_ask;
+      _storage.push({name: removed[0], minutes: time_ask });
+
+      // Only Project
+      if (projects.length == 1 && time > 0) {
+        console.log(`Only Project [${projects[0]}]: Minutes[${time}]`)
+        _storage.push({ name: projects[0], minutes: time })
+        break;
+      }
+    }
+    this.processDoingSelection(_storage);
+  }
+
+  processDoingSelection(data) {
+    for(let i of data) {
+      console.log(i)
+      for(let j = 0; j < this.data.projects.length ; j++) {
+        if(i.name == this.data.projects[j].name){
+          this.data.projects[j].doing = true,
+          this.data.projects[j].time = i.minutes
+        }else {
+          this.data.projects[j].doing = false,
+          this.data.projects[j].time = 0;
+        }
+      } 
+    }
+    this.save();
   }
 }
 

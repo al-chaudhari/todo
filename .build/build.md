@@ -280,3 +280,7 @@ $ doit show boards
 $ doit show task <board>
 ```
 
+#### Implementation of Set Doing
+
+
+
