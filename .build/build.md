@@ -270,8 +270,8 @@ $ doit show project -- done
 $ doit show default --done
 $ doit show profile --done
 $ doit set doing -- done
+$ doit add task 'TaskA' 'TaskB'	-- done
 
-$ doit add task 'TaskA' 'TaskB'	
 $ doit move <do> <doing>
 
 
