@@ -29,15 +29,12 @@ class Project {
       limitMessage: "Should be Grater Then 10 Characters",
     });
 
-    let time = readline.questionInt(
-      "How many Minutes You Want to Spend in a Day? : "
-    );
+    
     let id = this.createID();
     this.data.projects.push({
       id: id,
       doing: false,
       defualt: false,
-      time: time,
       desc: desc,
       name: name,
     });

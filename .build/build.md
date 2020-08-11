@@ -55,14 +55,12 @@ Project Data Structure
     		id: 1242332,
     		doing: true,
     		default: false, 
-    		time: 120,
     		name: "Project X"
 		},
 		{
             id: 123232,
             default: true,
             doing: false,
-            time: 30,
             name: "Projext Y"
         }
     ]
