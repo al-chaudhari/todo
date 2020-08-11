@@ -266,8 +266,7 @@ $ doit delete project -- done
 $ doit show project -- done
 $ doit show default --done
 $ doit show profile --done
-
-$ doit set doing
+$ doit set doing -- done
 
 $ doit add task 'TaskA' 'TaskB'	
 $ doit add board ui kd
