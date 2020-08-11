@@ -24,7 +24,6 @@ class Tags {
       console.log("Key Already Exist Please Delete it And Readd it");
     } else {
       this.data[name] = color;
-      console.log(this.data);
       this.save();
     }
   };
