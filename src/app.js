@@ -13,6 +13,7 @@ const Argv = require("./argv");
 const version = require("./version");
 const Project = require("./projects");
 const Tags = require("./tags");
+const Board = require("./board");
 
 /**
  * Home Not Accessable?
@@ -90,7 +91,9 @@ if (args.current("set")) {
     tags.addTag();
   } else if (args.current("project")) {
     project.addProject();
-  } else if (args.current("boards")) {
+  } else if (args.current("task")) {
+    let board = new Board();
+    board.addTask();
   }
 } else if (args.current("delete")) {
   if (args.current("tags")) {

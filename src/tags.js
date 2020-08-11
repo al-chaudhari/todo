@@ -42,6 +42,10 @@ class Tags {
     }
   }
 
+  getTags() {
+    return Object.keys(this.data);
+  }
+
   save = () => {
     fs.writeFileSync(doit_tags, JSON.stringify(this.data));
   };
