@@ -1,5 +1,4 @@
 #!/home/akash/opt/node/bin/node
-const readline = require("readline-sync");
 const {
   home,
   doit_path,
