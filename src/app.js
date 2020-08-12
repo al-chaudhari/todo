@@ -114,6 +114,14 @@ if (args.current("set")) {
   } else if (args.current("profile")) {
     let s = JSON.parse(fs.readFileSync(doit_profile, { encoding: "utf-8" }));
     console.log(s.name, `| Minutes: ${s.minutes}`);
+  } else if (args.current("task")) {
+    let board = new Board();
+    board.showTasks();
+  }
+} else if (args.current("move")) {
+  if (args.current("task")) {
+    let board = new Board();
+    board.moveTask();
   }
 } else {
   printUsage();

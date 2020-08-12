@@ -65,6 +65,57 @@ class Board {
     this.save();
   };
 
+  moveTask = () => {
+    let eg_boards = ["do", "doing", "done"];
+    let board = readline.question("Source Board: ", {
+      limit: eg_boards,
+      limitMessage: "Can be Only One",
+    });
+
+    if (board < 0) {
+      console.log("Cancelled");
+      process.exit(0);
+    }
+
+    let dest_board = readline.question("Destination Board: ", {
+      limit: ["do", "doing", "done"].filter((val) => val != eg_boards[board]),
+      limitMessage: "Can be Only One",
+    });
+
+    if (dest_board < 0) {
+      console.log("Cancelled");
+      process.exit(0);
+    }
+
+    this.consoleInputinList(this.getTasksFromBoard(board));
+    let ans = readline.question("Enter Tasks in Comma Eg[1,2,3] : ", {
+      limit: (input) => {
+        input = input.split(",").map((value) => parseInt(value));
+        return this.containsNaN(input);
+      },
+      limitMessage: "Can be only Number",
+    });
+
+    console.log(ans);
+  };
+
+  containsNaN = (input) => {
+    for (let i of input) {
+      if (i == NaN) {
+        return true;
+      }
+    }
+    return false;
+  };
+
+  consoleInputinList = (data) => {
+    data.forEach((element, index) => {
+      console.log(`[${index + 1}] ${element}`);
+    });
+
+    console.log(`[0] Cancel`);
+  };
+
   save() {
     fs.writeFileSync(this.path, JSON.stringify(this.data));
   }
@@ -129,6 +180,21 @@ class Board {
     }
     return _storage;
   }
+
+  showTasks = () => {
+    let board = readline.question("Which Board: ", {
+      limit: ["do", "doing", "done"],
+      limitMessage: "Can be Only One",
+    });
+
+    if (board < 0) {
+      console.log("Cancelled");
+      process.exit(0);
+    }
+
+    let tasks = this.getTasksFromBoard(board);
+    tasks.forEach((el) => console.log(el));
+  };
 }
 
 module.exports = Board;

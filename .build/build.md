@@ -271,14 +271,10 @@ $ doit show default --done
 $ doit show profile --done
 $ doit set doing -- done
 $ doit add task 'TaskA' 'TaskB'	-- done
+$ doit delete task <name-of-board> -- done
 
 $ doit move <do> <doing>
-
-
-$ doit delete task <name-of-board>
-
 $ doit show boards
-$ doit show task <board>
 ```
 
 #### Implementation of Set Doing
