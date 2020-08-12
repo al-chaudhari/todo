@@ -94,20 +94,42 @@ class Board {
     }
 
     this.consoleInputinList(tasks);
+
     let ans = readline.question("Enter Tasks in Comma Eg[1,2,3] : ", {
       limit: (input) => {
         input = input.split(",").map((value) => parseInt(value));
-        return this.containsNaN(input);
+        return !this.containsNaNAnsSmaller(input);
       },
-      limitMessage: "Can be only Number",
+      limitMessage: "Can be only Number & should be in Range",
     });
 
-    console.log(ans);
+    let arr = ans.split(",").map((value) => parseInt(value));
+
+    if (arr.indexOf(0) > 0) {
+      console.log("Cancelledl");
+      process.exit(0);
+    }
+
+    arr = arr.map((val) => tasks[val - 1]);
+
+    this._processMove(arr, board, dest_board);
   };
 
-  containsNaN = (input) => {
+  _processMove(arr, source, dest) {
+    for (let i of arr) {
+      for (let j = 0; j < this.data[source].length; j++) {
+        if (i == this.data[source][j].name) {
+          this.data[dest].push(this.data[source].splice(j, 1)[0]);
+        }
+      }
+    }
+
+    this.save();
+  }
+
+  containsNaNAnsSmaller = (input) => {
     for (let i of input) {
-      if (i == NaN) {
+      if (i == NaN || i > input.length || i < 0) {
         return true;
       }
     }
