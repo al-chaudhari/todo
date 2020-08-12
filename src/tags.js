@@ -1,6 +1,7 @@
 const { doit_tags } = require("./constants");
 const fs = require("fs");
 const readline = require("readline-sync");
+let colors = require('./colors');
 
 class Tags {
   colors = [];
@@ -17,7 +18,7 @@ class Tags {
     });
 
     let color = readline.question("Color : ", {
-      limit: ["red", "green", "yellow", "pink", "red", "yellow"],
+      limit: colors,
     });
 
     if (Object.keys(this.data).indexOf(name) >= 0) {
