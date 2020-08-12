@@ -7,7 +7,7 @@ const {
   doit_tags,
 } = require("./constants");
 const fs = require("fs");
-const { setProfile, printUsage, printSetUsage, printAndExit, printAddUsage } = require("./util");
+const { setProfile, printUsage, printSetUsage, printAndExit, printAddUsage, printDeleteUsage } = require("./util");
 const Argv = require("./argv");
 const version = require("./version");
 const Project = require("./projects");
@@ -82,6 +82,8 @@ if (args.current("set")) {
   } else if (args.current("task")) {
     let board = new Board();
     board.deleteTask();
+  }else {
+    printDeleteUsage()
   }
 } else if (args.current("show")) {
   if (args.current("tags")) {
@@ -99,6 +101,8 @@ if (args.current("set")) {
   } else if (args.current('board')) {
     let board = new Board();
     board.showBoard()
+  } else {
+    
   }
 } else if (args.current("move")) {
   if (args.current("task")) {

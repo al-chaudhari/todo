@@ -53,6 +53,17 @@ Options:
   );
 }
 
+function printDeleteUsage() {
+  console.log(
+    `Usage: doit delete [options]
+Options:
+    tag     : For Deleting Tags
+    project : For Deleting Project
+    task    : For Deleting Task to Default Project
+`
+  );
+}
+
 printAndExit = (message) => {
   console.log(message);
   process.exit(0)
@@ -63,5 +74,6 @@ module.exports = {
   printUsage,
   printSetUsage,
   printAndExit,
-  printAddUsage
+  printAddUsage,
+  printDeleteUsage
 };
