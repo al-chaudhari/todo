@@ -64,6 +64,20 @@ Options:
   );
 }
 
+function printShowUsage() {
+  console.log(
+    `Usage: doit show [options]
+Options:
+    tag     : Shows Tags
+    project : Shows Projects
+    default : Shows Default Project
+    task    : Shows Tasks from Board
+    profile : Shows Profile
+    board   : Shows Board
+`
+  );
+}
+
 printAndExit = (message) => {
   console.log(message);
   process.exit(0)
@@ -75,5 +89,6 @@ module.exports = {
   printSetUsage,
   printAndExit,
   printAddUsage,
-  printDeleteUsage
+  printDeleteUsage,
+  printShowUsage
 };
