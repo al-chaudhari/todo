@@ -1,13 +1,14 @@
 const readline = require("readline-sync");
 const fs = require("fs");
 const { doit_profile } = require("./constants");
+const { MinutesInDayMessage } = require("./messages");
 
 function setProfile() {
   const name = readline.question("What is Your Name: ", {
     defaultInput: "doit-user",
   });
   const time_value = readline.questionInt(
-"How Many Minutes Do you have in a Day ⌛ : "
+    MinutesInDayMessage
   );
   fs.writeFileSync(
     doit_profile,
@@ -78,6 +79,15 @@ Options:
   );
 }
 
+function printMoveUsage() {
+  console.log(
+    `Usage: doit move [options]
+Options:
+    task    : For Moving Task Around Boards
+`
+  );
+}
+
 printAndExit = (message) => {
   console.log(message);
   process.exit(0)
@@ -90,5 +100,6 @@ module.exports = {
   printAndExit,
   printAddUsage,
   printDeleteUsage,
-  printShowUsage
+  printShowUsage,
+  printMoveUsage
 };

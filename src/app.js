@@ -7,7 +7,16 @@ const {
   doit_tags,
 } = require("./constants");
 const fs = require("fs");
-const { setProfile, printUsage, printSetUsage, printAndExit, printAddUsage, printDeleteUsage, printShowUsage } = require("./util");
+const {
+  setProfile,
+  printUsage,
+  printSetUsage,
+  printAndExit,
+  printAddUsage,
+  printDeleteUsage,
+  printShowUsage,
+  printMoveUsage,
+} = require("./util");
 const Argv = require("./argv");
 const version = require("./version");
 const Project = require("./projects");
@@ -17,7 +26,7 @@ const { cannotAccessHomeMessage } = require("./messages");
 
 // Cannot Access Home Folder
 if (!fs.existsSync(home)) {
-  printAndExit(cannotAccessHomeMessage)
+  printAndExit(cannotAccessHomeMessage);
 }
 
 // Create doit Directory if not
@@ -71,7 +80,7 @@ if (args.current("set")) {
   } else if (args.current("task")) {
     let board = new Board();
     board.addTask();
-  }else {
+  } else {
     printAddUsage();
   }
 } else if (args.current("delete")) {
@@ -82,8 +91,8 @@ if (args.current("set")) {
   } else if (args.current("task")) {
     let board = new Board();
     board.deleteTask();
-  }else {
-    printDeleteUsage()
+  } else {
+    printDeleteUsage();
   }
 } else if (args.current("show")) {
   if (args.current("tags")) {
@@ -98,16 +107,18 @@ if (args.current("set")) {
   } else if (args.current("task")) {
     let board = new Board();
     board.showTasks();
-  } else if (args.current('board')) {
+  } else if (args.current("board")) {
     let board = new Board();
-    board.showBoard()
+    board.showBoard();
   } else {
-    printShowUsage()
+    printShowUsage();
   }
 } else if (args.current("move")) {
   if (args.current("task")) {
     let board = new Board();
     board.moveTask();
+  } else {
+    printMoveUsage()
   }
 } else {
   printUsage();
