@@ -1,15 +1,13 @@
 const readline = require("readline-sync");
 const fs = require("fs");
 const { doit_profile } = require("./constants");
-const { MinutesInDayMessage } = require("./messages");
+const { MinutesInDayMessage, WhatIsNameMessage } = require("./messages");
 
 function setProfile() {
-  const name = readline.question("What is Your Name: ", {
+  const name = readline.question(WhatIsNameMessage, {
     defaultInput: "doit-user",
   });
-  const time_value = readline.questionInt(
-    MinutesInDayMessage
-  );
+  const time_value = readline.questionInt(MinutesInDayMessage);
   fs.writeFileSync(
     doit_profile,
     JSON.stringify({
@@ -18,7 +16,6 @@ function setProfile() {
     })
   );
 }
-
 
 function printUsage() {
   console.log(
@@ -90,8 +87,8 @@ Options:
 
 printAndExit = (message) => {
   console.log(message);
-  process.exit(0)
-}
+  process.exit(0);
+};
 
 module.exports = {
   setProfile,
@@ -101,5 +98,5 @@ module.exports = {
   printAddUsage,
   printDeleteUsage,
   printShowUsage,
-  printMoveUsage
+  printMoveUsage,
 };
