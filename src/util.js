@@ -42,8 +42,14 @@ Options:
   );
 }
 
+printAndExit = (message) => {
+  console.log(message);
+  process.exit(0)
+}
+
 module.exports = {
   setProfile,
   printUsage,
   printSetUsage,
+  printAndExit
 };
