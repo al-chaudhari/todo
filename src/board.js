@@ -86,6 +86,34 @@ class Board {
     return id;
   };
 
+  deleteTask = () => {
+    let board = readline.question("Which Board: ", {
+      limit: ["do", "doing", "done"],
+      limitMessage: "Can be Only One",
+    });
+    let tasks = this.getTasksFromBoard(board);
+    if (!tasks.length) {
+      console.log(`No task in [${board}]`);
+      process.exit(0);
+    }
+
+    let which = readline.keyInSelect(tasks, "Which One to Delete ? : ");
+    if (which < 0) {
+      console.log("Cancelled ? ");
+      process.exit(0);
+    }
+
+    let task = tasks[which];
+
+    console.log(this.data[board], task);
+    for (let i = 0; i < this.data[board].length; i++) {
+      if (this.data[board][i].name == task) {
+        this.data[board].splice(i, 1);
+      }
+    }
+    this.save();
+  };
+
   getIds() {
     let _storage = [];
     for (let i of this.data.do) {

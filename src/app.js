@@ -100,6 +100,9 @@ if (args.current("set")) {
     tags.delete();
   } else if (args.current("project")) {
     project.deleteProject();
+  } else if (args.current("task")) {
+    let board = new Board();
+    board.deleteTask();
   }
 } else if (args.current("show")) {
   if (args.current("tags")) {
