@@ -2,7 +2,6 @@ const { doit_projects, doit_path, doit_profile } = require("./constants");
 const fs = require("fs");
 const readline = require("readline-sync");
 const path = require("path");
-const { throws } = require("assert");
 
 class Project {
   constructor() {
