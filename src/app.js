@@ -20,11 +20,7 @@ if (!fs.existsSync(home)) {
   printAndExit(cannotAccessHomeMessage)
 }
 
-/**
- * Don't Have Doit Folder ?
- * Create Directory or
- * Report Error
- */
+// Create doit Directory if not
 if (!fs.existsSync(doit_path)) {
   fs.mkdir(doit_path, { recursive: false }, (error) => {
     if (error) {
@@ -34,19 +30,12 @@ if (!fs.existsSync(doit_path)) {
   });
 }
 
-/**
- * Have Doit Profile?
- * Create one!!
- */
+// Set profile if not
 if (!fs.existsSync(doit_profile)) {
   setProfile();
 }
 
-/**
- * Have Projects?
- * Crate A basic File
- * In Startup
- */
+// Add simple File
 if (!fs.existsSync(doit_projects)) {
   fs.writeFileSync(
     doit_projects,
@@ -54,10 +43,7 @@ if (!fs.existsSync(doit_projects)) {
   );
 }
 
-/**
- * Startup Create
- * A Tags File
- */
+// Stringify Write
 if (!fs.existsSync(doit_tags)) {
   fs.writeFileSync(doit_tags, JSON.stringify({}));
 }
@@ -66,12 +52,7 @@ let project = new Project();
 let args = new Argv();
 let tags = new Tags();
 
-/**
- * This only Seems
- * Non Experienced But Uses
- * States
- */
-
+// State Based if Else
 if (args.current("set")) {
   if (args.current("profile")) {
     setProfile();
