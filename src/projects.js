@@ -195,6 +195,10 @@ class Project {
     }
     this.save();
   }
+
+  today = () => {
+    
+  }
 }
 
 module.exports = Project;

@@ -7,7 +7,7 @@ function setProfile() {
     defaultInput: "doit-user",
   });
   const time_value = readline.questionInt(
-    "How Many Minutes Do you have in a Day :"
+"How Many Minutes Do you have in a Day ⌛ : "
   );
   fs.writeFileSync(
     doit_profile,
