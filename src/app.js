@@ -117,6 +117,9 @@ if (args.current("set")) {
   } else if (args.current("task")) {
     let board = new Board();
     board.showTasks();
+  } else if (args.current('board')) {
+    let board = new Board();
+    board.showBoard()
   }
 } else if (args.current("move")) {
   if (args.current("task")) {

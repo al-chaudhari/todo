@@ -242,7 +242,27 @@ class Board {
     );
 
     let maxarr = Math.max(doe.length, doing.length, done.length);
+
+    let total = max * 3 + 6
+
+    console.log('-'.repeat(total))
+    console.log(this._PadString("Do", max) + this._PadString("Doing", max) + this._PadString("Done", max))
+      console.log('-'.repeat(total));
+    for(let i = 0; i<maxarr; i++){
+      let doe_el = doe[i];
+      let doing_el = doing[i];
+      let done_el = done[i];
+      console.log(this._PadString(doe_el, max) + this._PadString(doing_el, max) + this._PadString(done_el, max))
+      console.log('-'.repeat(total));
+    }
   };
+
+  _PadString(item, max) {
+    if(!item) {
+      return `|${' '.padEnd(max)}|`;
+    }
+    return `|${item.padEnd(max, ' ')}|`
+  }
 }
 
 module.exports = Board;
