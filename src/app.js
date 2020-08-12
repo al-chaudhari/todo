@@ -7,20 +7,17 @@ const {
   doit_tags,
 } = require("./constants");
 const fs = require("fs");
-const { setProfile, printUsage, printSetUsage } = require("./util");
+const { setProfile, printUsage, printSetUsage, printAndExit } = require("./util");
 const Argv = require("./argv");
 const version = require("./version");
 const Project = require("./projects");
 const Tags = require("./tags");
 const Board = require("./board");
+const { cannotAccessHomeMessage } = require("./messages");
 
-/**
- * Home Not Accessable?
- * Exit with Message
- */
+// Cannot Access Home Folder
 if (!fs.existsSync(home)) {
-  console.error("Cannot Access your Home Directory");
-  process.exit(0);
+  printAndExit(cannotAccessHomeMessage)
 }
 
 /**
