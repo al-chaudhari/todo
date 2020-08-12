@@ -87,7 +87,13 @@ class Board {
       process.exit(0);
     }
 
-    this.consoleInputinList(this.getTasksFromBoard(board));
+    let tasks = this.getTasksFromBoard(board);
+    if (!tasks.length) {
+      console.log("No Task to Delete!!");
+      process.exit(0);
+    }
+
+    this.consoleInputinList(tasks);
     let ans = readline.question("Enter Tasks in Comma Eg[1,2,3] : ", {
       limit: (input) => {
         input = input.split(",").map((value) => parseInt(value));
@@ -156,7 +162,6 @@ class Board {
 
     let task = tasks[which];
 
-    console.log(this.data[board], task);
     for (let i = 0; i < this.data[board].length; i++) {
       if (this.data[board][i].name == task) {
         this.data[board].splice(i, 1);
