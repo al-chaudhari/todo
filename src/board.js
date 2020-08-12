@@ -10,6 +10,11 @@ const path = require("path");
  */
 
 class Board {
+  setDefaultProjectMessage = "Please 🙏 Set Default Project";
+  whichBoard = "Which Board 🤔 : ";
+  SelectOnlyOne = "Select only one";
+  boardOptions = ["do", "done", "doing"];
+
   constructor() {
     this.default = this.getDefault();
     this.path = path.join(doit_path, `${this.default}.json`);
@@ -28,14 +33,14 @@ class Board {
         return i.id;
       }
     }
-    console.log("Please Set Default Project");
+    console.log(this.setDefaultProjectMessage);
     process.exit(0);
   };
 
   addTask = () => {
-    let board = readline.question("Which Board: ", {
-      limit: ["do", "doing", "done"],
-      limitMessage: "Can be Only One",
+    let board = readline.question(this.whichBoard, {
+      limit: this.boardOptions,
+      limitMessage: this.SelectOnlyOne,
     });
 
     let task = readline.question("Name Task : ", {
