@@ -7,7 +7,7 @@ const {
   doit_tags,
 } = require("./constants");
 const fs = require("fs");
-const { setProfile, printUsage, printSetUsage, printAndExit } = require("./util");
+const { setProfile, printUsage, printSetUsage, printAndExit, printAddUsage } = require("./util");
 const Argv = require("./argv");
 const version = require("./version");
 const Project = require("./projects");
@@ -71,6 +71,8 @@ if (args.current("set")) {
   } else if (args.current("task")) {
     let board = new Board();
     board.addTask();
+  }else {
+    printAddUsage();
   }
 } else if (args.current("delete")) {
   if (args.current("tags")) {

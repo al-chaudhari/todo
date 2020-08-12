@@ -34,10 +34,21 @@ Options:
 
 function printSetUsage() {
   console.log(
-    `Usage: doit  set [options]
+    `Usage: doit set [options]
 Options:
     profile   : For Setting Your Profile
     default   : For Setting Your Default Project
+`
+  );
+}
+
+function printAddUsage() {
+  console.log(
+    `Usage: doit add [options]
+Options:
+    tag     : For Addding Tags
+    project : For Adding Project
+    task    : For Adding Task to Default Project
 `
   );
 }
@@ -51,5 +62,6 @@ module.exports = {
   setProfile,
   printUsage,
   printSetUsage,
-  printAndExit
+  printAndExit,
+  printAddUsage
 };
