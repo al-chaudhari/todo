@@ -12,8 +12,10 @@ const path = require("path");
 class Board {
   setDefaultProjectMessage = "Please 🙏 Set Default Project";
   whichBoard = "Which Board 🤔 : ";
-  SelectOnlyOne = "Select only one";
+  whichDelete = "Which One to Delete 🗑️: ";
+  SelectOnlyOne = "Select only one ✔️: ";
   boardOptions = ["do", "done", "doing"];
+  cancelledMessage = "❌ Cancelled";
 
   constructor() {
     this.default = this.getDefault();
@@ -214,18 +216,32 @@ class Board {
   }
 
   showTasks = () => {
-    let board = readline.question("Which Board: ", {
-      limit: ["do", "doing", "done"],
-      limitMessage: "Can be Only One",
+    let board = readline.question(this.whichBoard, {
+      limit: this.boardOptions,
+      limitMessage: this.SelectOnlyOne,
     });
 
     if (board < 0) {
-      console.log("Cancelled");
+      console.log(this.cancelledMessage);
       process.exit(0);
     }
 
     let tasks = this.getTasksFromBoard(board);
     tasks.forEach((el) => console.log(el));
+  };
+
+  showBoard = () => {
+    let doe = this.getTasksFromBoard("do");
+    let doing = this.getTasksFromBoard("doing");
+    let done = this.getTasksFromBoard("done");
+
+    let max = Math.max(
+      ...doe.map((val) => val.length),
+      ...doing.map((val) => val.length),
+      ...done.map((val) => val.length)
+    );
+
+    let maxarr = Math.max(doe.length, doing.length, done.length);
   };
 }
 
