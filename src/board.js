@@ -96,7 +96,7 @@ class Board {
 
     let tasks = this.getTasksFromBoard(board);
     if (!tasks.length) {
-      console.log("No Task to Delete!!");
+      console.log("No Task to Move!!");
       process.exit(0);
     }
 

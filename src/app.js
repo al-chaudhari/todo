@@ -73,7 +73,7 @@ if (args.current("set")) {
     printSetUsage();
   }
 } else if (args.current("add")) {
-  if (args.current("tags")) {
+  if (args.current("tag")) {
     tags.addTag();
   } else if (args.current("project")) {
     project.addProject();
@@ -95,7 +95,7 @@ if (args.current("set")) {
     printDeleteUsage();
   }
 } else if (args.current("show")) {
-  if (args.current("tags")) {
+  if (args.current("tag")) {
     tags.show();
   } else if (args.current("project")) {
     project.showProject();
