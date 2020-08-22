@@ -73,9 +73,10 @@ if (args.current("set")) {
     printSetUsage();
   }
 } else if (args.current("add")) {
-  if (args.current("tag")) {
-    tags.addTag();
-  } else if (args.current("project")) {
+  // if (args.current("tag")) {
+  //   tags.addTag();
+  // } else 
+  if (args.current("project")) {
     project.addProject();
   } else if (args.current("task")) {
     let board = new Board();
@@ -84,9 +85,11 @@ if (args.current("set")) {
     printAddUsage();
   }
 } else if (args.current("delete")) {
-  if (args.current("tags")) {
-    tags.delete();
-  } else if (args.current("project")) {
+  // if (args.current("tags")) {
+  //   tags.delete();
+  // } else 
+  
+  if (args.current("project")) {
     project.deleteProject();
   } else if (args.current("task")) {
     let board = new Board();
@@ -95,9 +98,10 @@ if (args.current("set")) {
     printDeleteUsage();
   }
 } else if (args.current("show")) {
-  if (args.current("tag")) {
-    tags.show();
-  } else if (args.current("project")) {
+  // if (args.current("tag")) {
+  //   tags.show();
+  // } else 
+  if (args.current("project")) {
     project.showProject();
   } else if (args.current("default")) {
     project.showDefault();

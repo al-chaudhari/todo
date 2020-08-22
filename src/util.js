@@ -44,7 +44,6 @@ function printAddUsage() {
   console.log(
     `Usage: doit add [options]
 Options:
-    tag     : For Addding Tags
     project : For Adding Project
     task    : For Adding Task to Default Project
 `
@@ -55,7 +54,6 @@ function printDeleteUsage() {
   console.log(
     `Usage: doit delete [options]
 Options:
-    tag     : For Deleting Tags
     project : For Deleting Project
     task    : For Deleting Task to Default Project
 `
@@ -66,7 +64,6 @@ function printShowUsage() {
   console.log(
     `Usage: doit show [options]
 Options:
-    tag     : Shows Tags
     project : Shows Projects
     default : Shows Default Project
     task    : Shows Tasks from Board
