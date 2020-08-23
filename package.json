@@ -21,5 +21,11 @@
     "terminal"
   ],
   "author": "Akash Chaudhari",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": "https://github.com/al-chaudhari/todo",
+  "homepage": "https://github.com/al-chaudhari/todo",
+  "bugs": "https://github.com/al-chaudhari/todo/issues",
+  "files": [
+    "build"
+  ]
 }
