@@ -1,4 +1,4 @@
-#!/home/akash/opt/node/bin/node
+#!/usr/bin/env node
 const {
   home,
   doit_path,
@@ -62,71 +62,76 @@ let project = new Project();
 let args = new Argv();
 let tags = new Tags();
 
-// State Based if Else
-if (args.current("set")) {
-  if (args.current("profile")) {
-    setProfile();
-  } else if (args.current("default")) {
-    project.setDefault();
-  } else if (args.current("doing")) {
-    project.setDoing();
+let doit = () => {
+
+  // State Based if Else
+  if (args.current("set")) {
+    if (args.current("profile")) {
+      setProfile();
+    } else if (args.current("default")) {
+      project.setDefault();
+    } else if (args.current("doing")) {
+      project.setDoing();
+    } else {
+      printSetUsage();
+    }
+  } else if (args.current("add")) {
+    // if (args.current("tag")) {
+    //   tags.addTag();
+    // } else 
+    if (args.current("project")) {
+      project.addProject();
+    } else if (args.current("task")) {
+      let board = new Board();
+      board.addTask();
+    } else {
+      printAddUsage();
+    }
+  } else if (args.current("delete")) {
+    // if (args.current("tags")) {
+    //   tags.delete();
+    // } else 
+
+    if (args.current("project")) {
+      project.deleteProject();
+    } else if (args.current("task")) {
+      let board = new Board();
+      board.deleteTask();
+    } else {
+      printDeleteUsage();
+    }
+  } else if (args.current("show")) {
+    // if (args.current("tag")) {
+    //   tags.show();
+    // } else 
+    if (args.current("project")) {
+      project.showProject();
+    } else if (args.current("default")) {
+      project.showDefault();
+    } else if (args.current("profile")) {
+      let s = JSON.parse(fs.readFileSync(doit_profile, { encoding: "utf-8" }));
+      console.log(s.name, `| Minutes: ${s.minutes}`);
+    } else if (args.current("task")) {
+      let board = new Board();
+      board.showTasks();
+    } else if (args.current("board")) {
+      let board = new Board();
+      board.showBoard();
+    } else if (args.current("version")) {
+      printVersion()
+    } else {
+      printShowUsage();
+    }
+  } else if (args.current("move")) {
+    if (args.current("task")) {
+      let board = new Board();
+      board.moveTask();
+    } else {
+      printMoveUsage()
+    }
   } else {
-    printSetUsage();
+    printUsage();
   }
-} else if (args.current("add")) {
-  // if (args.current("tag")) {
-  //   tags.addTag();
-  // } else 
-  if (args.current("project")) {
-    project.addProject();
-  } else if (args.current("task")) {
-    let board = new Board();
-    board.addTask();
-  } else {
-    printAddUsage();
-  }
-} else if (args.current("delete")) {
-  // if (args.current("tags")) {
-  //   tags.delete();
-  // } else 
-  
-  if (args.current("project")) {
-    project.deleteProject();
-  } else if (args.current("task")) {
-    let board = new Board();
-    board.deleteTask();
-  } else {
-    printDeleteUsage();
-  }
-} else if (args.current("show")) {
-  // if (args.current("tag")) {
-  //   tags.show();
-  // } else 
-  if (args.current("project")) {
-    project.showProject();
-  } else if (args.current("default")) {
-    project.showDefault();
-  } else if (args.current("profile")) {
-    let s = JSON.parse(fs.readFileSync(doit_profile, { encoding: "utf-8" }));
-    console.log(s.name, `| Minutes: ${s.minutes}`);
-  } else if (args.current("task")) {
-    let board = new Board();
-    board.showTasks();
-  } else if (args.current("board")) {
-    let board = new Board();
-    board.showBoard();
-  } else if(args.current("version")) {
-    printVersion()
-  } else {
-    printShowUsage();
-  }
-} else if (args.current("move")) {
-  if (args.current("task")) {
-    let board = new Board();
-    board.moveTask();
-  } else {
-    printMoveUsage()
-  }
-} else {
-  printUsage();
 }
+
+module.exports = doit;

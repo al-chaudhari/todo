@@ -14,7 +14,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
-    "doit": "src/app.js"
+    "doit": "./index.js"
   },
   "keywords": [
     "todo",
