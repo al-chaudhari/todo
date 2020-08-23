@@ -1,6 +1,6 @@
 {
   "name": "dote",
-  "version": "1.0.1",
+  "version": "1.1.1",
   "description": "A Simple Todo Application For Developers",
   "main": "index.js",
   "dependencies": {
