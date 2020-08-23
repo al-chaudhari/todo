@@ -26,6 +26,8 @@
   "homepage": "https://github.com/al-chaudhari/todo",
   "bugs": "https://github.com/al-chaudhari/todo/issues",
   "files": [
-    "build"
+    "src",
+    "package.json",
+    "README.md"
   ]
 }
