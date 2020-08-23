@@ -2,6 +2,7 @@ const readline = require("readline-sync");
 const fs = require("fs");
 const { doit_profile } = require("./constants");
 const { MinutesInDayMessage, WhatIsNameMessage } = require("./messages");
+const  version  = require("./version");
 
 function setProfile() {
   const name = readline.question(WhatIsNameMessage, {
@@ -69,6 +70,7 @@ Options:
     task    : Shows Tasks from Board
     profile : Shows Profile
     board   : Shows Board
+    version : Prints Version
 `
   );
 }
@@ -87,6 +89,10 @@ printAndExit = (message) => {
   process.exit(0);
 };
 
+printVersion = () => {
+  console.log(version);
+}
+
 module.exports = {
   setProfile,
   printUsage,
@@ -96,4 +102,5 @@ module.exports = {
   printDeleteUsage,
   printShowUsage,
   printMoveUsage,
+  printVersion
 };

@@ -16,6 +16,7 @@ const {
   printDeleteUsage,
   printShowUsage,
   printMoveUsage,
+  printVersion,
 } = require("./util");
 const Argv = require("./argv");
 const version = require("./version");
@@ -114,6 +115,8 @@ if (args.current("set")) {
   } else if (args.current("board")) {
     let board = new Board();
     board.showBoard();
+  } else if(args.current("version")) {
+    printVersion()
   } else {
     printShowUsage();
   }
