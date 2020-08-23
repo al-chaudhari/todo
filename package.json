@@ -28,7 +28,8 @@
   "files": [
     "src",
     "package.json",
-    "README.md"
+    "README.md",
+    "index.js"
   ],
   "publishConfig": { "registry": "https://npm.pkg.github.com/" }
 }
