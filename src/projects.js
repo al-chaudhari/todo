@@ -75,6 +75,14 @@ class Project {
     fs.writeFileSync(doit_projects, JSON.stringify(this.data));
   };
 
+  getProjectsNameWithDesc = () => {
+    let storage = [];
+    for(let i of this.data.projects){
+      storage.push([i.name, i.desc]);
+    }
+    return storage;
+  }
+
   getProjectNames = () => {
     let storage = [];
     for (let i of this.data.projects) {
@@ -129,9 +137,9 @@ class Project {
     }
   }
 
-  showProject() {
-    for (let i of this.getProjectNames()) {
-      console.log(i);
+  showProject = () => {
+    for (let i of this.getProjectsNameWithDesc()) {
+      console.log(`${i[0]} - ${i[1]}`);
     }
   }
 
